@@ -102,6 +102,10 @@ deleteShow(id)
 
 }
 
+refreshpage(){
+ window.location.reload();
+}
+
    render() {
 
      const loggedIn = this.state.loggedIn;
@@ -193,6 +197,7 @@ deleteShow(id)
                    <hr></hr>
                 </div>
              </div>
+             <center><div className="col-6 btn btn-success mb-5" onClick={this.refreshpage}>Refresh Page - (Heroku Only)</div></center>
                    <div className = "row">
                    {this.state.shows.map((show) =>
                      {
