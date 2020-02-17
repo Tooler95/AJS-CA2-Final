@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:20+00:00
- * @Last modified time: 2020-02-17T17:54:47+00:00
+ * @Last modified time: 2020-02-17T18:21:55+00:00
  */
  import React, { Component } from 'react';
  import { Link } from 'react-router-dom';
@@ -238,7 +238,6 @@ movie.actors.map((actor, i, arr) => <span>{actor.name}{i != (arr.length-1) ? ', 
                     return (
 
                         <div key={movie.id} className = "col-lg-6 col-sm-12 topSpace">
-     <div className="deleteButton"><a href="#" title="Delete Show" onClick={() => {this.deleteMovie(movie._id)}} className="btn btn-danger deleteBtn"><IoMdCloseCircleOutline size={26} /></a></div>
                           <center><div className = "card showCard emptyPages2">
                                  <div className="card-header p-0 pb-2 loginregister">
                                      <h3 className="card-title pt-2">
