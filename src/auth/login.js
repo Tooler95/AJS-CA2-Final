@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-28T11:34:35+00:00
- * @Last modified time: 2020-01-28T12:07:28+00:00
+ * @Last modified time: 2020-02-17T16:31:37+00:00
  */
 
  import React, { Component } from 'react';
@@ -46,7 +46,7 @@
 
      console.log(user);
 
-     axios.post('http://localhost:5000/account/login', user)
+     axios.post(process.env.REACT_APP_TVGUIDE + '/account/login', user)
        .then(res => {
          // save token in local storage
          localStorage.setItem('jwtToken', res.data.token);

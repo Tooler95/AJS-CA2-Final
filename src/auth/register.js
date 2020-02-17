@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-28T11:34:29+00:00
- * @Last modified time: 2020-02-06T12:39:14+00:00
+ * @Last modified time: 2020-02-17T16:31:49+00:00
  */
  import React, { Component } from 'react';
  import axios from 'axios';
@@ -56,7 +56,7 @@
 
      console.log(user);
 
-     axios.post('http://localhost:5000/account/register', user)
+     axios.post(process.env.REACT_APP_TVGUIDE + '/account/register', user)
        .then(res => console.log(res.data))
        .catch(err => console.log(err));
 
