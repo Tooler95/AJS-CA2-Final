@@ -49,17 +49,21 @@
 
      axios.post(process.env.REACT_APP_TVGUIDE + '/account/login', user)
        .then(res => {
+         // save token in local storage
          localStorage.setItem('jwtToken', res.data.token);
-         this.props.history.push('/shows'
          this.props.onLogin();
          console.log(res.data);
-         )
+
        })
        .catch((err) => {
          if(err.response.status === 401) {
            this.setState({ message: 'Login failed. Username or password not match' });
          }
        });
+
+
+
+       this.props.history.push('/')
    };
 
    render() {

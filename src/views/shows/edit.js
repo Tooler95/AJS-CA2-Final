@@ -153,30 +153,12 @@
           console.log(show);
 
           axios.post(process.env.REACT_APP_TVGUIDE + '/shows/update/'+this.props.match.params.id, show)
-          .then(res => console.log(res.data));
+          .then(res => {
+            console.log(res.data);
+          })
           this.props.history.push('/shows')
        };
 
-       actorsList(){
-         return this.state.actors.map((currentActors, index) => {
-           return <Actors actors={currentActors} key={index} />;
-
-         })
-       }
-
-       genreList(){
-         return this.state.genre.map((currentGenre, index) => {
-           return <Genre genre={currentGenre} key={index} />;
-
-         })
-       }
-
-       writersList(){
-         return this.state.writers.map((currentWriters, index) => {
-           return <Writers writers={currentWriters} key={index} />;
-
-         })
-       }
 
     render() {
       return (
