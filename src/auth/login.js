@@ -63,7 +63,7 @@
 
 
 
-       this.props.history.push('/')
+       this.props.history.push('/shows')
    };
 
    render() {
