@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T13:06:52+00:00
+ * @Last modified time: 2020-02-17T16:40:48+00:00
  */
  import React, { Component } from 'react';
  import axios from 'axios';
@@ -135,7 +135,7 @@
      axios.post(process.env.REACT_APP_TVGUIDE + '/shows/', show)
      .then(res => {
        console.log(res.data);
-       window.location = '/shows';
+       this.props.history.push('/shows')
      })
      .catch(err => {
        console.log(err)
