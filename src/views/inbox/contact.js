@@ -55,7 +55,7 @@ onSubmit = e => {
   axios.post(process.env.REACT_APP_TVGUIDE + '/contact/', contact)
   .then(res => {
     console.log(contact);
-    this.props.history.push('/shows');
+    this.props.history.push('/shows')
   })
   .catch(err => {
     console.log(err)

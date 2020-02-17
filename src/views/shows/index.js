@@ -31,6 +31,9 @@ String.prototype.capitalize = function() {
 
 }
 
+componentDidUpdate(){
+
+}
 
 componentDidMount() {
   axios.get(process.env.REACT_APP_TVGUIDE + '/shows/')

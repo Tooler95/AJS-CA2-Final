@@ -41,6 +41,8 @@
     constructor(props) {
       super(props);
       this.state = {
+        shows: [],
+        show:{
         belongsto: '',
         createdby: '',
         numofepisodes: 0,
@@ -55,13 +57,18 @@
         genreText: '',
         imdb: '',
         rottentomatoes: '',
-        airedon: '',
+        airedon: ''
+      },
         loggedIn: localStorage.getItem('jwtToken') !== null
       }
     }
 
 
     componentDidMount() {
+      axios.get(process.env.REACT_APP_TVGUIDE + '/shows/')
+       .then(response => {
+         this.setState({ shows: response.data });
+       })
       axios.get(process.env.REACT_APP_TVGUIDE + '/shows/'+this.props.match.params.id)
        .then(response => {
          this.setState({
@@ -102,35 +109,6 @@
       });
     }
 
-    onAddActors = () => {
-      this.setState(state => {
-        const actors = [...state.actors, state.actorsText];
-        return{
-          actors,
-          actorsText: '',
-        };
-      });
-    };
-
-    onAddGenre = () => {
-      this.setState(state => {
-        const genre = [...state.genre, state.genreText];
-        return{
-          genre,
-          genreText: '',
-        };
-      });
-    };
-
-    onAddWriters = () => {
-      this.setState(state => {
-        const writers = [...state.writers, state.writersText];
-        return{
-          writers,
-          writersText: '',
-        };
-      });
-    };
 
     onSubmit = e => {
       e.preventDefault();
@@ -155,8 +133,17 @@
           axios.post(process.env.REACT_APP_TVGUIDE + '/shows/update/'+this.props.match.params.id, show)
           .then(res => {
             console.log(res.data);
+            const shows = [...this.state.shows]
+            shows.push(show)
+            this.setState({shows})
+
           })
-          this.props.history.push('/shows')
+          .catch((err) => {
+            if(err.response.status === 401) {
+              this.setState({ message: 'Error' });
+            }
+          });
+          window.location = '/shows'
        };
 
 

@@ -111,7 +111,7 @@
 
           axios.post(process.env.REACT_APP_TVGUIDE + '/movies/update/'+this.props.match.params.id, movie)
           .then(res => console.log(res.data));
-          this.props.history.push('/movies')
+          window.location = '/movies'
        };
 
 

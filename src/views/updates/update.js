@@ -89,7 +89,7 @@ onSubmit = e => {
   .then(res => {
     console.log(res.data);
 
-    this.props.history.push('/updates');
+    this.props.history.push('/updates')
   })
   .catch(err => {
     console.log(err)
