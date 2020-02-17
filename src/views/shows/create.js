@@ -1,8 +1,9 @@
 /**
  * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T17:02:55+00:00
+ * @Last modified time: 2020-02-17T17:28:21+00:00
  */
  import React, { Component } from 'react';
+ import {withRouter} from 'react-router-dom'
  import axios from 'axios';
 
  import Form from 'react-bootstrap/Form';
@@ -18,7 +19,6 @@
  import { TiUserAdd } from "react-icons/ti";
  import { IoIosDesktop, IoIosPlayCircle, IoIosPaper, IoIosAddCircleOutline } from "react-icons/io";
  import { MdGrade, MdFormatListNumbered, MdKeyboardHide } from "react-icons/md";
-
  const Actors = props => (
    <Badge variant="light">{props.actors}</Badge>
  )
@@ -30,9 +30,9 @@
    <Badge variant="light">{props.writers}</Badge>
  )
 
- export default class CreateShow extends Component {
-   constructor(props, context) {
-     super(props, context);
+ class CreateShow extends Component {
+   constructor(props) {
+     super(props);
      this.state = {
        belongsto: '',
        createdby: '',
@@ -134,7 +134,7 @@
      axios.post(process.env.REACT_APP_TVGUIDE + '/shows/', show)
      .then(res => {
        console.log(res.data);
-       window.location.href = '/shows'
+       this.props.history.push('/shows')
      })
      .catch(err => {
        console.log(err)
@@ -414,3 +414,5 @@
      )
    }
  }
+
+ export default withRouter(CreateShow);

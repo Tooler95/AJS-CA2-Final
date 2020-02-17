@@ -1,12 +1,12 @@
 /**
  * @Date:   2020-01-15T13:29:54+00:00
- * @Last modified time: 2020-02-14T15:54:54+00:00
+ * @Last modified time: 2020-02-17T17:19:28+00:00
  */
 
 
 
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import {withRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
