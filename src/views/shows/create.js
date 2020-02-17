@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T16:40:48+00:00
+ * @Last modified time: 2020-02-17T17:02:55+00:00
  */
  import React, { Component } from 'react';
  import axios from 'axios';
@@ -12,7 +12,6 @@
  import InputGroup from 'react-bootstrap/InputGroup';
  import Badge from 'react-bootstrap/Badge';
  import '../../App.css';
-
 
  import { GoDeviceCameraVideo } from "react-icons/go";
  import { FiMeh } from "react-icons/fi";
@@ -32,8 +31,8 @@
  )
 
  export default class CreateShow extends Component {
-   constructor(props) {
-     super(props);
+   constructor(props, context) {
+     super(props, context);
      this.state = {
        belongsto: '',
        createdby: '',
@@ -135,7 +134,7 @@
      axios.post(process.env.REACT_APP_TVGUIDE + '/shows/', show)
      .then(res => {
        console.log(res.data);
-       this.props.history.push('/shows')
+       window.location.href = '/shows'
      })
      .catch(err => {
        console.log(err)
