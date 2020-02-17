@@ -1,11 +1,11 @@
 /**
  * @Date:   2020-01-15T14:39:29+00:00
- * @Last modified time: 2020-02-17T13:45:21+00:00
+ * @Last modified time: 2020-02-17T17:50:41+00:00
  */
 
  /**
   * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T13:45:21+00:00
+ * @Last modified time: 2020-02-17T17:50:41+00:00
   */
   import React, { Component } from 'react';
   import axios from 'axios';
@@ -16,6 +16,7 @@
   import InputGroup from 'react-bootstrap/InputGroup';
   import Badge from 'react-bootstrap/Badge';
   import '../../../App.css';
+   import {withRouter} from 'react-router-dom'
 
 
   import { GoDeviceCameraVideo } from "react-icons/go";
@@ -24,7 +25,7 @@
   import { IoIosPeople, IoIosDesktop, IoIosPlayCircle, IoIosPaper, IoIosAddCircleOutline, IoMdStar, IoLogoEuro } from "react-icons/io";
   import { MdGrade, MdFormatListNumbered, MdKeyboardHide, MdMovie } from "react-icons/md";
 
-  export default class EditEpisode extends Component {
+  class EditEpisode extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -92,7 +93,7 @@
 
           axios.post(process.env.REACT_APP_TVGUIDE + '/episodes/update/'+this.props.match.params.id, episode)
           .then(res => console.log(res.data));
-          window.location = '/episodes/'+this.state.belongsto
+          this.props.history.push('/episodes/'+this.state.belongsto)
        };
 
 
@@ -195,3 +196,4 @@
       )
     }
   }
+    export default withRouter(EditEpisode);

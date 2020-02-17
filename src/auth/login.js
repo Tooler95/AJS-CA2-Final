@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-28T11:34:35+00:00
- * @Last modified time: 2020-02-17T17:21:31+00:00
+ * @Last modified time: 2020-02-17T18:11:13+00:00
  */
 
  import React, { Component } from 'react';
@@ -12,8 +12,9 @@
  import Collapsible from 'react-collapsible';
   import { MdExpandMore } from "react-icons/md";
  import '../App.css';
+ import {withRouter} from 'react-router-dom'
 
- export default class Login extends Component {
+  class Login extends Component {
    constructor(props) {
      super(props);
 
@@ -52,7 +53,7 @@
          localStorage.setItem('jwtToken', res.data.token);
          this.props.onLogin();
          console.log(res.data);
-         window.location = '/shows';
+         this.props.history.push('/shows')
        })
        .catch((err) => {
          if(err.response.status === 401) {
@@ -117,3 +118,4 @@
      )
    }
  }
+ export default withRouter(Login);

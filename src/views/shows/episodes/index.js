@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-02-14T10:55:35+00:00
- * @Last modified time: 2020-02-17T13:07:34+00:00
+ * @Last modified time: 2020-02-17T17:52:02+00:00
  */
 
 
@@ -55,10 +55,6 @@ const show = {
    episodes: this.state.episodes.filter(el => el._id !== id)
  })
 }
-}
-
-return(){
-  window.location = '/shows'
 }
 
   render() {

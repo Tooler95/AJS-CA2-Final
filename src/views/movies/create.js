@@ -1,7 +1,7 @@
 
 /**
  * @Date:   2020-01-15T14:39:48+00:00
- * @Last modified time: 2020-02-17T13:42:58+00:00
+ * @Last modified time: 2020-02-17T17:57:24+00:00
  */
 
  import React, { Component } from 'react';
@@ -19,6 +19,8 @@ import { FiMeh } from "react-icons/fi";
 import { MdMovie, MdLocalMovies, MdGrade } from "react-icons/md";
 import { TiUserAdd } from "react-icons/ti";
 import '../../App.css';
+import {withRouter} from 'react-router-dom'
+
 
 const Genre = props => (
   <Badge variant="light">{props.genre}</Badge>
@@ -38,7 +40,7 @@ const validateForm = (errors) => {
 }
 
 
- export default class CreateMovie extends Component {
+ class CreateMovie extends Component {
 
    constructor(props) {
      super(props);
@@ -145,7 +147,7 @@ const validateForm = (errors) => {
      axios.post(process.env.REACT_APP_TVGUIDE + '/movies/', movie)
      .then(res => {
        console.log(res.data);
-       window.location = '/movies';
+       this.props.history.push('/movies')
      })
      .catch(err => {
        console.log(err)
@@ -381,3 +383,4 @@ actorsList(){
      )
    }
  }
+   export default withRouter(CreateMovie);

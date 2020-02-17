@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T13:39:45+00:00
+ * @Last modified time: 2020-02-17T17:53:24+00:00
  */
  import React, { Component } from 'react';
  import axios from 'axios';
@@ -12,6 +12,7 @@
  import InputGroup from 'react-bootstrap/InputGroup';
  import Badge from 'react-bootstrap/Badge';
  import '../../../App.css';
+ import {withRouter} from 'react-router-dom'
 
 
  import { GoDeviceCameraVideo } from "react-icons/go";
@@ -20,7 +21,7 @@
  import { IoIosDesktop, IoIosPlayCircle, IoIosPaper, IoIosAddCircleOutline } from "react-icons/io";
  import { MdGrade, MdFormatListNumbered, MdKeyboardHide } from "react-icons/md";
 
- export default class CreateEpisode extends Component {
+ class CreateEpisode extends Component {
    constructor(props) {
      super(props);
      this.state = {
@@ -86,7 +87,7 @@
      axios.post(process.env.REACT_APP_TVGUIDE + '/shows/episode/'+this.props.match.params.id, show)
      .then(res => {
        console.log(res.data);
-       window.location = '/episodes/'+this.props.match.params.id
+       this.props.history.push('/episodes/'+this.props.match.params.id)
      })
      .catch(err => {
        console.log(err)
@@ -191,3 +192,4 @@
      )
    }
  }
+  export default withRouter(CreateEpisode);

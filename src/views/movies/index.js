@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:20+00:00
- * @Last modified time: 2020-02-17T13:41:49+00:00
+ * @Last modified time: 2020-02-17T17:54:47+00:00
  */
  import React, { Component } from 'react';
  import { Link } from 'react-router-dom';
@@ -18,13 +18,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
  import Collapsible from 'react-collapsible';
  import Moment from 'react-moment'
 import axios from 'axios';
+ import {withRouter} from 'react-router-dom'
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 
- export default class MovieIndex extends Component {
+ class MovieIndex extends Component {
    constructor(props) {
   super(props);
   this.state = {movies: [],loggedIn: localStorage.getItem('jwtToken') !== null};
@@ -66,7 +67,7 @@ onSubmit = e => {
   axios.post(process.env.REACT_APP_TVGUIDE + '/contact/', contact)
   .then(res => {
     console.log(contact);
-    window.location = '/shows'
+    this.props.history.push('/shows')
   })
   .catch(err => {
     console.log(err)
@@ -296,3 +297,4 @@ movie.actors.map((actor, i, arr) => <span>{actor.name}{i != (arr.length-1) ? ', 
   }
 }
 }
+  export default withRouter(MovieIndex);

@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-02-14T10:55:35+00:00
- * @Last modified time: 2020-02-17T13:43:32+00:00
+ * @Last modified time: 2020-02-17T17:59:40+00:00
  */
 
 
@@ -14,13 +14,14 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom'
 
 String.prototype.capitalize = function() {
    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 
-export default class Contact extends Component {
+class Contact extends Component {
   constructor(props) {
  super(props);
  this.state = {contact: {}, loggedIn: localStorage.getItem('jwtToken') !== null};
@@ -54,7 +55,7 @@ onSubmit = e => {
   axios.post(process.env.REACT_APP_TVGUIDE + '/contact/', contact)
   .then(res => {
     console.log(contact);
-    window.location = '/shows'
+    this.props.history.push('/shows');
   })
   .catch(err => {
     console.log(err)
@@ -129,3 +130,4 @@ onSubmit = e => {
     }
   }
 }
+  export default withRouter(Contact);

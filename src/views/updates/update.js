@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-02-14T10:55:35+00:00
- * @Last modified time: 2020-02-17T13:41:00+00:00
+ * @Last modified time: 2020-02-17T18:10:29+00:00
  */
 
 
@@ -20,13 +20,14 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Badge from 'react-bootstrap/Badge';
+import {withRouter} from 'react-router-dom'
 
 String.prototype.capitalize = function() {
    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 
-export default class Updates extends Component {
+class Updates extends Component {
   constructor(props) {
  super(props);
  this.state = {updates: [], update: {
@@ -84,11 +85,11 @@ onSubmit = e => {
     content: this.state.content
   }
   console.log(update);
-  axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
   axios.post(process.env.REACT_APP_TVGUIDE + '/updates/', update)
   .then(res => {
     console.log(res.data);
-    window.location = '/updates'
+
+    this.props.history.push('/updates');
   })
   .catch(err => {
     console.log(err)
@@ -251,3 +252,4 @@ deleteUpdate(id)
     }
   }
 }
+export default withRouter(Updates);

@@ -1,11 +1,11 @@
 /**
  * @Date:   2020-01-15T14:39:29+00:00
- * @Last modified time: 2020-02-17T13:42:08+00:00
+ * @Last modified time: 2020-02-17T17:56:17+00:00
  */
 
  /**
   * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T13:42:08+00:00
+ * @Last modified time: 2020-02-17T17:56:17+00:00
   */
   import React, { Component } from 'react';
   import axios from 'axios';
@@ -16,6 +16,8 @@
   import InputGroup from 'react-bootstrap/InputGroup';
   import Badge from 'react-bootstrap/Badge';
   import '../../App.css';
+  import {withRouter} from 'react-router-dom'
+
 
 
   import { GoDeviceCameraVideo } from "react-icons/go";
@@ -24,7 +26,7 @@
   import { IoIosPeople, IoIosDesktop, IoIosPlayCircle, IoIosPaper, IoIosAddCircleOutline, IoMdStar, IoLogoEuro } from "react-icons/io";
   import { MdGrade, MdFormatListNumbered, MdKeyboardHide, MdMovie } from "react-icons/md";
 
-  export default class EditMovie extends Component {
+  class EditMovie extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -109,7 +111,7 @@
 
           axios.post(process.env.REACT_APP_TVGUIDE + '/movies/update/'+this.props.match.params.id, movie)
           .then(res => console.log(res.data));
-          window.location = '/movies'
+          this.props.history.push('/movies')
        };
 
 
@@ -256,3 +258,4 @@
       )
     }
   }
+  export default withRouter(EditMovie);

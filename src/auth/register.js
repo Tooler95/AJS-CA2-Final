@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-28T11:34:29+00:00
- * @Last modified time: 2020-02-17T16:31:49+00:00
+ * @Last modified time: 2020-02-17T18:13:15+00:00
  */
  import React, { Component } from 'react';
  import axios from 'axios';
@@ -10,10 +10,11 @@
  import Button from 'react-bootstrap/Button'
  import InputGroup from 'react-bootstrap/InputGroup';
  import { MdEmail, MdPerson, MdLock } from "react-icons/md";
-  import { IoMdUnlock } from "react-icons/io";
-   import '../App.css';
+ import { IoMdUnlock } from "react-icons/io";
+ import '../App.css';
+ import {withRouter} from 'react-router-dom'
 
- export default class Register extends Component {
+ class Register extends Component {
    constructor(props) {
      super(props);
 
@@ -60,7 +61,7 @@
        .then(res => console.log(res.data))
        .catch(err => console.log(err));
 
-     window.location = '/';
+     this.props.history.push('/');
    }
    };
 
@@ -155,3 +156,4 @@
      )
    }
  }
+ export default withRouter(Register);

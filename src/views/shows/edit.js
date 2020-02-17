@@ -1,14 +1,15 @@
 /**
  * @Date:   2020-01-15T14:39:29+00:00
- * @Last modified time: 2020-02-17T13:04:23+00:00
+ * @Last modified time: 2020-02-17T17:37:00+00:00
  */
 
  /**
   * @Date:   2020-01-15T14:39:38+00:00
- * @Last modified time: 2020-02-17T13:04:23+00:00
+ * @Last modified time: 2020-02-17T17:37:00+00:00
   */
   import React, { Component } from 'react';
   import axios from 'axios';
+  import {withRouter} from 'react-router-dom'
   import Form from 'react-bootstrap/Form';
   import Row from 'react-bootstrap/Row';
   import Col from 'react-bootstrap/Col';
@@ -36,7 +37,7 @@
     <Badge variant="light">{props.writers}</Badge>
   )
 
-  export default class EditShow extends Component {
+   class EditShow extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -153,7 +154,7 @@
 
           axios.post(process.env.REACT_APP_TVGUIDE + '/shows/update/'+this.props.match.params.id, show)
           .then(res => console.log(res.data));
-          window.location = '/shows'
+          this.props.history.push('/shows')
        };
 
        actorsList(){
@@ -330,3 +331,5 @@
       )
     }
   }
+
+  export default withRouter(EditShow);

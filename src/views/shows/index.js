@@ -1,6 +1,6 @@
 /**
  * @Date:   2020-01-15T14:39:20+00:00
- * @Last modified time: 2020-02-17T12:53:48+00:00
+ * @Last modified time: 2020-02-17T17:47:20+00:00
  */
  import React, { Component } from 'react';
  import { Link } from 'react-router-dom';
@@ -17,13 +17,14 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
  import Collapsible from 'react-collapsible';
 import axios from 'axios';
+ import {withRouter} from 'react-router-dom'
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 
- export default class ShowIndex extends Component {
+  class ShowIndex extends Component {
    constructor(props) {
   super(props);
   this.state = {shows: [], episodes: [], sentbyId: '', sentby: '', loggedIn: localStorage.getItem('jwtToken') !== null, icon: '', openedText: 'Open'};
@@ -76,6 +77,7 @@ onSubmit = e => {
   axios.post(process.env.REACT_APP_TVGUIDE + '/contact/', contact)
   .then(res => {
     console.log(contact);
+    this.props.history.push('/shows')
   })
   .catch(err => {
     console.log(err)
@@ -320,3 +322,4 @@ show.actors.map((actor, i, arr) => <span>{actor.name}{i != (arr.length-1) ? ', '
      }
    }
  }
+  export default withRouter(ShowIndex);
