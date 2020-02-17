@@ -46,7 +46,7 @@ deleteShow(id)
 const show = {
   numofepisodes: this.state.newvalue
 }
- const r = window.confirm("Are you sure you want to remove this series?\nThis will also remove any episodes registered")
+ const r = window.confirm("Are you sure you want to this episode from " + this.state.show.title +"?")
  if (r == true){
  axios.delete(process.env.REACT_APP_TVGUIDE + '/episodes/'+id)
  axios.post(process.env.REACT_APP_TVGUIDE + '/shows/episode/'+this.props.match.params.id, show)

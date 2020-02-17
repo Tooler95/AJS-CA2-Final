@@ -116,6 +116,7 @@
                           <Form.Control
                               type="text"
                               name="title"
+                              pattern="[A-Z]*"
                               className="form-control sameRow"
                               placeholder="Episode Title"
                               value={this.state.title}
@@ -125,6 +126,7 @@
                         <Form.Control
                               type="text"
                               name="director"
+                              pattern="[A-Z]*"
                               className="form-control"
                               placeholder="Director"
                               value={this.state.director}
@@ -140,6 +142,7 @@
                               </InputGroup.Prepend>
                                 <Form.Control
                                     type="text"
+                                    pattern="[0-9]*"
                                     name="seasonnumber"
                                     className="form-control sameRow"
                                     placeholder="Season Number"
@@ -152,6 +155,7 @@
                                     </InputGroup.Prepend>
                               <Form.Control
                                     type="text"
+                                    pattern="[0-9]*"
                                     name="numinseason"
                                     className="form-control"
                                     placeholder="Number in Season"
@@ -166,6 +170,7 @@
          <InputGroup className="inputfields">
            <Form.Control  as="textarea"
                required
+               pattern="[A-Z]*"
                name="description"
                placeholder="Please enter a description of the episode"
                rows="3"

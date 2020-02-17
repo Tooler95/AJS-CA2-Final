@@ -180,6 +180,7 @@
                         name="imdb"
                         className="loginregister2"
                         placeholder="IMDB"
+                        pattern="[0-9]*"
                         value={this.state.imdb}
                         onChange={this.handleInputChange}
                         />
@@ -192,6 +193,7 @@
                         name="rottentomatoes"
                         className="loginregister2"
                         placeholder="Rotten Tomatoes Rating"
+                        pattern="[0-9]*"
                         value={this.state.rottentomatoes}
                         onChange={this.handleInputChange} />
                   </InputGroup>
@@ -209,6 +211,7 @@
                               name="boxoffice"
                               className="loginregister2"
                               placeholder="Box Office Revenue"
+                              pattern="[0-9]*"
                               value={this.state.boxoffice}
                               onChange={this.handleInputChange}
                               />

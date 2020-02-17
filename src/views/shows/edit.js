@@ -193,6 +193,7 @@
                           name="seasons"
                           className="loginregister2"
                           placeholder="Seasons"
+                          pattern="[0-9]*"
                           value={this.state.seasons}
                           onChange={this.handleInputChange}
                           />
@@ -204,6 +205,7 @@
                           type="text"
                           name="totalepisodes"
                           className="loginregister2"
+                          pattern="[0-9]*"
                           placeholder="Total Episode Number"
                           value={this.state.totalepisodes}
                           onChange={this.handleInputChange} />
@@ -221,6 +223,7 @@
                         type="text"
                         name="imdb"
                         className="loginregister2"
+                        pattern="[0-9]*"
                         placeholder="IMDB"
                         value={this.state.imdb}
                         onChange={this.handleInputChange}
@@ -232,6 +235,7 @@
                   <Form.Control
                         type="text"
                         name="rottentomatoes"
+                        pattern="[0-9]*"
                         className="loginregister2"
                         placeholder="Rotten Tomatoes Rating"
                         value={this.state.rottentomatoes}

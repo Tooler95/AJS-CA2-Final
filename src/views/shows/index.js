@@ -94,6 +94,8 @@ deleteShow(id)
   const show = {
       numofepisodes: this.state.newvalue
     }
+    const r = window.confirm("Are you sure you want to remove this show? This will also delete all registed episodes")
+    if (r == true){
      axios.delete(process.env.REACT_APP_TVGUIDE + '/shows/'+id)
       this.setState({
     shows: this.state.shows.filter(el => el._id !== id)
@@ -102,7 +104,7 @@ deleteShow(id)
   this.setState({
     episodes: this.state.episodes.filter(el => el._id !== id)
   })
-
+}
 }
 
 refreshpage(){

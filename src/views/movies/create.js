@@ -90,25 +90,6 @@ const validateForm = (errors) => {
      });
    }
 
-   onAddGenre = () => {
-     this.setState(state => {
-       const genre = [...state.genre, state.genreText];
-       return{
-         genre,
-         genreText: '',
-       };
-     });
-   };
-
-   onAddActors = () => {
-     this.setState(state => {
-       const actors = [...state.actors, state.actorsText];
-       return{
-         actors,
-         actorsText: '',
-       };
-     });
-   };
 
    onSubmit = e => {
      e.preventDefault();
@@ -259,6 +240,7 @@ actorsList(){
      className="loginregister2"
      placeholder="Box Office Revenue (in millions)"
      value={this.state.boxoffice}
+     pattern="[0-9]*"
      onChange={this.handleInputChange}
      />
    </InputGroup>
@@ -293,6 +275,7 @@ actorsList(){
                 name="imdb"
                 className="loginregister2"
                 placeholder="IMDB"
+                pattern="[0-9]*"
                 value={this.state.imdb}
                 onChange={this.handleInputChange}
                 />
@@ -305,6 +288,7 @@ actorsList(){
                 name="rottentomatoes"
                 className="loginregister2"
                 placeholder="Rotten Tomatoes Rating"
+                pattern="[0-9]*"
                 value={this.state.rottentomatoes}
                 onChange={this.handleInputChange} />
           </InputGroup>

@@ -81,10 +81,13 @@ onSubmit = e => {
 
 deleteMovie(id)
 {
+  const r = window.confirm("Are you sure you want to remove this movie?")
+  if (r == true){
        axios.delete(process.env.REACT_APP_TVGUIDE + '/movies/'+id)
       this.setState({
     movies: this.state.movies.filter(el => el._id !== id)
   })
+}
 }
 
 render() {

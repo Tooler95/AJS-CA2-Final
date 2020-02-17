@@ -220,6 +220,7 @@
                          name="seasons"
                          className="loginregister2"
                          placeholder="Seasons"
+                         pattern="[0-9]*"
                          value={this.state.seasons}
                          onChange={this.handleInputChange}
                          />
@@ -232,6 +233,7 @@
                          name="totalepisodes"
                          className="loginregister2"
                          placeholder="Total Episode Number"
+                         pattern="[0-9]*"
                          value={this.state.totalepisodes}
                          onChange={this.handleInputChange} />
                    </InputGroup>
@@ -249,6 +251,7 @@
                        name="imdb"
                        className="loginregister2"
                        placeholder="IMDB"
+                       pattern="[0-9]*"
                        value={this.state.imdb}
                        onChange={this.handleInputChange}
                        />
@@ -261,6 +264,7 @@
                        name="rottentomatoes"
                        className="loginregister2"
                        placeholder="Rotten Tomatoes Rating"
+                       pattern="[0-9]*"
                        value={this.state.rottentomatoes}
                        onChange={this.handleInputChange} />
                  </InputGroup>

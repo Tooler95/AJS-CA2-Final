@@ -97,6 +97,9 @@
    };
 
 
+
+
+
    render() {
        this.state.belongsto = this.props.match.params.id;
        this.state.newvalue = this.state.show.numofepisodes + 1;
@@ -118,6 +121,7 @@
                          <Form.Control
                              type="text"
                              name="title"
+                             pattern="[A-Z]*"
                              className="form-control sameRow"
                              placeholder="Episode Title"
                              value={this.state.title}
@@ -127,6 +131,7 @@
                        <Form.Control
                              type="text"
                              name="director"
+                             pattern="[A-Z]*"
                              className="form-control"
                              placeholder="Director"
                              value={this.state.director}
@@ -138,8 +143,9 @@
                       <Form.Group className="col-lg-12">
                              <InputGroup className="inputfields">
                                <Form.Control
-                                   type="text"
+                                   type="number"
                                    name="seasonnumber"
+                                   pattern="[0-9]*"
                                    className="form-control sameRow"
                                    placeholder="Season Number"
                                    value={this.state.seasonnumber}
@@ -147,8 +153,9 @@
                                    />
 
                              <Form.Control
-                                   type="text"
+                                   type="number"
                                    name="numinseason"
+                                   pattern="[0-9]*"
                                    className="form-control"
                                    placeholder="Number in Season"
                                    value={this.state.numinseason}
@@ -165,6 +172,7 @@
               name="description"
               placeholder="Please enter a description of the episode"
               rows="3"
+              pattern="[A-Z]*"
               className="form-control"
               value={this.state.description}
               onChange={this.handleInputChange}
