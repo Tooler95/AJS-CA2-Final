@@ -49,11 +49,11 @@
 
      axios.post(process.env.REACT_APP_TVGUIDE + '/account/login', user)
        .then(res => {
-         // save token in local storage
          localStorage.setItem('jwtToken', res.data.token);
+         this.props.history.push('/shows'
          this.props.onLogin();
          console.log(res.data);
-         this.props.history.push('/shows')
+         )
        })
        .catch((err) => {
          if(err.response.status === 401) {

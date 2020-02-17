@@ -73,8 +73,12 @@ class App extends React.Component {
           <Row>
           <Col>
             <Switch>
-              <Route path = "/movies"> exact componet = {MovieIndex} />
-              <Route path = "/shows"> exact componet = {ShowIndex} />
+              <Route path = "/movies">
+                {loggedIn ? <MovieIndex /> : <Redirect to="/" />}
+              </Route>
+              <Route path = "/shows">
+                {loggedIn ? <ShowIndex /> : <Redirect to="/" />}
+              </Route>
               <Route path = "/" exact component = {(props) => <Login {...props} onLogin={this.authHandler} /> } />
               <Route path = "/register" exact component = {Register} />
               <Route path = "/episodes" exact component = {AllEpisodes} />
