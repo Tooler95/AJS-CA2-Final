@@ -121,7 +121,6 @@
                          <Form.Control
                              type="text"
                              name="title"
-                             pattern="[A-Z]*"
                              className="form-control sameRow"
                              placeholder="Episode Title"
                              value={this.state.title}
@@ -145,7 +144,6 @@
                                <Form.Control
                                    type="number"
                                    name="seasonnumber"
-                                   pattern="[0-9]*"
                                    className="form-control sameRow"
                                    placeholder="Season Number"
                                    value={this.state.seasonnumber}
@@ -172,7 +170,6 @@
               name="description"
               placeholder="Please enter a description of the episode"
               rows="3"
-              pattern="[A-Z]*"
               className="form-control"
               value={this.state.description}
               onChange={this.handleInputChange}

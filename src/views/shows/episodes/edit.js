@@ -116,7 +116,6 @@
                           <Form.Control
                               type="text"
                               name="title"
-                              pattern="[A-Z]*"
                               className="form-control sameRow"
                               placeholder="Episode Title"
                               value={this.state.title}
@@ -126,7 +125,6 @@
                         <Form.Control
                               type="text"
                               name="director"
-                              pattern="[A-Z]*"
                               className="form-control"
                               placeholder="Director"
                               value={this.state.director}
@@ -170,7 +168,6 @@
          <InputGroup className="inputfields">
            <Form.Control  as="textarea"
                required
-               pattern="[A-Z]*"
                name="description"
                placeholder="Please enter a description of the episode"
                rows="3"

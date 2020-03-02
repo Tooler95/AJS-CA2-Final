@@ -154,7 +154,6 @@ deleteUpdate(id)
                               <div key={update._id} className="col-12">
                               <center><div className = "card inboxCard">
                                      <div className="card-header corner">
-                                     <div className="deleteButton"><a href="#" title="Delete Show" className="btn btn-danger deleteBtn"><IoMdCloseCircleOutline size={26} /></a></div>
                                          <h4 className="card-title pageHead">
                                           Patch v.{update.patch}
                                          </h4>

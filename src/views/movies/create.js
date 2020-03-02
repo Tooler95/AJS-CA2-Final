@@ -89,7 +89,25 @@ const validateForm = (errors) => {
        [name]: value
      });
    }
+   onAddActors = () => {
+     this.setState(state => {
+       const actors = [...state.actors, state.actorsText];
+       return{
+         actors,
+         actorsText: '',
+       };
+     });
+   };
 
+   onAddGenre = () => {
+     this.setState(state => {
+       const genre = [...state.genre, state.genreText];
+       return{
+         genre,
+         genreText: '',
+       };
+     });
+   };
 
    onSubmit = e => {
      e.preventDefault();
